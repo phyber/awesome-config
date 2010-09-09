@@ -8,7 +8,6 @@ local debian = {
 local string = string
 local awesome = _G.awesome
 local beautiful = _G.beautiful
-local image = _G.image
 
 module("menu")
 
@@ -37,9 +36,4 @@ mainmenu = awful.menu({
 		{ "terminal", terminal },
 		{ "browser", browser },
 	}
-})
-
-launcher = awful.widget.launcher({
-	image = image(beautiful.awesome_icon),
-	menu = mainmenu,
 })

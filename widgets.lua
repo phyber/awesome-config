@@ -1,14 +1,23 @@
 -- Widgets
 
 local awful = _G.awful
+local beautiful = _G.beautiful
 local screen = _G.screen
 local vicious = _G.vicious
 local widget = _G.widget
+local image = _G.image
 local outline = _G.outline
+local menu = _G.menu
 
 module("widgets")
 
 local modkey = "Mod4"
+
+-- Launcher
+launcher = awful.widget.launcher({
+	image = image(beautiful.awesome_icon),
+	menu = menu.mainmenu
+})
 
 -- Network Usage
 network = widget({ type = "textbox" })
@@ -129,7 +138,7 @@ for s = 1, screen.count() do
 		position = "top",
 		screen = s
 	})
-	-- Add widgets to the box. Order matters
+	-- Add widgets to the wibox. Order matters
 	wibox[s].widgets = {
 		{
 			launcher,
