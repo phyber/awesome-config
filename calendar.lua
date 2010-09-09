@@ -6,8 +6,6 @@ local string = _G.string
 local math = _G.math
 local os = _G.os
 local io = _G.io
-local perror = _G.perror
-local type = _G.type
 
 module("calendar")
 
@@ -59,7 +57,7 @@ local function show(new_offset)
 	})
 end
 
--- Function to add the calendar to a given widget
+-- Public function to add the calendar to a given widget
 function add(widget)
 	widget:add_signal("mouse::enter", function()
 		show(0)
