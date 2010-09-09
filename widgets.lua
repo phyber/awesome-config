@@ -135,10 +135,10 @@ for s = 1, screen.count() do
 	-- Layout box
 	layoutbox[s] = awful.widget.layoutbox(s)
 	layoutbox[s]:buttons(awful.util.table.join(
-		awful.button({}, 1, function () awful.layout.inc(outline.layouts, 1) end),
-		awful.button({}, 3, function () awful.layout.inc(outline.layouts, -1) end),
-		awful.button({}, 4, function () awful.layout.inc(outline.layouts, 1) end),
-		awful.button({}, 5, function () awful.layout.inc(outline.layouts, -1) end)
+		awful.button({}, 1, function() awful.layout.inc(outline.layouts, 1) end),
+		awful.button({}, 3, function() awful.layout.inc(outline.layouts, -1) end),
+		awful.button({}, 4, function() awful.layout.inc(outline.layouts, 1) end),
+		awful.button({}, 5, function() awful.layout.inc(outline.layouts, -1) end)
 	))
 	-- Taglist
 	taglist[s] = awful.widget.taglist(s, awful.widget.taglist.label.all, taglist.buttons)

@@ -23,6 +23,7 @@ require "naughty"
 require "vicious"
 
 -- Custom modules. Order is important
+require "autostart"
 require "outline"
 require "menu"
 require "widgets"
