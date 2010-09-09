@@ -14,23 +14,18 @@ module("calendar")
 local calobj = nil
 local offset = 0
 
-function remove()
-	perror("Removing calendar")
-	perror("OBJTYPE:")
-	perror(type(calobj))
-	perror("ENDOBJTYPE")
-	if cal ~= nil then
+local function remove()
+	if calobj ~= nil then
 		naughty.destroy(calobj)
 		cal = nil
 		offset = 0
 	end
 end
 
-function show(new_offset)
+local function show(new_offset)
 	local save_offset = offset
 	remove()
 	offset = save_offset + new_offset
-	perror(string.format("Showing cal with offset %d on screen %d", offset, mouse.screen))
 	local datespec = os.date("*t")
 	datespec = datespec.year * 12 + datespec.month -1 + offset
 	datespec = (datespec % 12 + 1) .. " " .. math.floor(datespec / 12)
@@ -46,27 +41,22 @@ function show(new_offset)
 	end
 	fcal:close()
 
-	perror(caltext)
-	perror(type(naughty))
-
 	calobj = naughty.notify({
 		title = string.format(
 			'<span font_desc="%s"><b>%s</b></span>',
 			"monospace",
-			os.date("%a", "%d %B %Y")
+			os.date("%a, %d %B %Y")
 		),
 		text = string.format(
 			'<span font_desc="%s">%s</span>',
 			"monospace",
 			caltext
 		),
-		timeout = 0,
+		timeout = 10,
 		hover_timeout = 0.5,
 		width = 150,
 		screen = mouse.screen,
 	})
-	perror("AFTER")
-	perror(type(calobj))
 end
 
 -- Function to add the calendar to a given widget
