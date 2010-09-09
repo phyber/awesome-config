@@ -1,8 +1,7 @@
 -- Widgets
 
-local awful = require "awful"
-local awful.util = require "awful.util"
-local vicious = require "vicious"
+local awful = _G.awful
+local vicious = _G.vicious
 
 module("widgets")
 

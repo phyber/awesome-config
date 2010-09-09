@@ -1,5 +1,5 @@
 -- Layouts
-local awful = require "awful"
+local awful = _G.awful
 
 module("layouts")
 

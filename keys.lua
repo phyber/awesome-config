@@ -1,9 +1,8 @@
 -- Key/Mouse bindings.
 
-local awful = require "awful"
-local awful.util = require "awful.util"
-local menu = require "menu"
-local layouts = require "layouts"
+local awful = _G.awful
+local menu = _G.menu
+local layouts = _G.layouts
 
 module("keys")
 

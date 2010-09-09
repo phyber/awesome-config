@@ -1,7 +1,7 @@
 -- Rules
-local awful = require "awful"
-local beautiful = require "beautiful"
-local keys = require "keys"
+local awful = _G.awful
+local beautiful = _G.beautiful
+local keys = _G.keys
 
 module("rules")
 

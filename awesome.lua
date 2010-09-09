@@ -13,6 +13,9 @@ awful.util.spawn(string.format("awsetbg -f %s/.wallpaper/battlecry-dual-1680x105
 -- Notification library
 require "naughty"
 
+-- Widget library
+require "vicious"
+
 -- Custom modules
 require "layouts"
 require "menu"

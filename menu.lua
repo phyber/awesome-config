@@ -1,7 +1,7 @@
 -- Build menus
 
 local os = os
-local awful = require "awful"
+local awful = _G.awful
 local debian = require "debian.menu"
 local string = string
 
