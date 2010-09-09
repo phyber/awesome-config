@@ -52,7 +52,7 @@ local function show(new_offset)
 			"monospace",
 			caltext
 		),
-		timeout = 10,
+		timeout = 0,
 		hover_timeout = 0.5,
 		width = 150,
 		screen = mouse.screen,
