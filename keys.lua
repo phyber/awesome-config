@@ -9,10 +9,11 @@ local screen = _G.screen
 local math = _G.math
 local mouse = _G.mouse
 local widgets = _G.widgets
+local settings = _G.settings
 
 module("keys")
 
-local modkey = "Mod4"
+local modkey = settings.modkey
 
 -- Mouse binds
 root.buttons(awful.util.table.join(

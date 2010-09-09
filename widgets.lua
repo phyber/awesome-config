@@ -8,12 +8,13 @@ local widget = _G.widget
 local image = _G.image
 local outline = _G.outline
 local menu = _G.menu
+local settings = _G.settings
 
 local calendar = require "calendar"
 
 module("widgets")
 
-local modkey = "Mod4"
+local modkey = settings.modkey
 
 -- Launcher
 launcher = awful.widget.launcher({

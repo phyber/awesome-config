@@ -8,20 +8,14 @@ local debian = {
 local string = string
 local awesome = _G.awesome
 local beautiful = _G.beautiful
+local settings = _G.settings
 
 module("menu")
-
--- XXX: These should probably be in a settings.lua
-terminal = "uxterm"
-browser = "google-chrome"
-homedir = os.getenv("HOME")
-editor = os.getenv("EDITOR") or "vim"
-editor_cmd = string.format("%s -e %s", terminal, editor)
 
 awesomemenu = {
 	{
 		"edit config", 
-		string.format("%s %s/rc.lua", editor_cmd, awful.util.getdir("config"))
+		string.format("%s %s/rc.lua", settings.editor_cmd, awful.util.getdir("config"))
 	},
 	{
 		"restart",
@@ -33,7 +27,7 @@ mainmenu = awful.menu({
 	items = {
 		{ "awesome", awesomemenu, beautiful.awesome_icon },
 		{ "Debian", debian.menu.Debian_menu.Debian },
-		{ "terminal", terminal },
-		{ "browser", browser },
+		{ "terminal", settings.terminal },
+		{ "browser", settings.browser },
 	}
 })
