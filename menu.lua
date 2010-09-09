@@ -2,8 +2,13 @@
 
 local os = os
 local awful = _G.awful
-local debian = require "debian.menu"
+local debian = {
+	menu = require "debian.menu"
+}
 local string = string
+local awesome = _G.awesome
+local beautiful = _G.beautiful
+local image = _G.image
 
 module("menu")
 

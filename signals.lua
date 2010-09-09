@@ -1,6 +1,7 @@
 -- Signals
 local awful = _G.awful
 local beautiful = _G.beautiful
+local client = _G.client
 
 module("signals")
 

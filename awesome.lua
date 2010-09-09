@@ -4,6 +4,7 @@
 require "awful"
 require "awful.autofocus"
 require "awful.rules"
+require "awful.util"
 
 -- Theme library and initialisation
 require "beautiful"
@@ -17,7 +18,7 @@ require "naughty"
 require "vicious"
 
 -- Custom modules. Order is important
-require "layouts"
+require "outline"
 require "menu"
 require "widgets"
 require "keys"

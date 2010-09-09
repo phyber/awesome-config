@@ -1,7 +1,10 @@
 -- Widgets
 
 local awful = _G.awful
+local screen = _G.screen
 local vicious = _G.vicious
+local widget = _G.widget
+local outline = _G.outline
 
 module("widgets")
 
@@ -10,7 +13,7 @@ local modkey = "Mod4"
 -- Network Usage
 network = widget({ type = "textbox" })
 vicious.register(
-	net,
+	network,
 	vicious.widgets.net,
 	'<span color="#CC9393">${br0 down_kb}</span> <span color="#7F9F7F">${br0 up_kb}</span>',
 	1
@@ -30,7 +33,7 @@ volume = widget({ type = "textbox" })
 vicious.register(
 	volume,
 	vicious.widgets.volume,
-	' $s$1% ',
+	' $2$1% ',
 	0.5,
 	'Master'
 )
@@ -112,10 +115,10 @@ for s = 1, screen.count() do
 	-- Layout box
 	layoutbox[s] = awful.widget.layoutbox(s)
 	layoutbox[s]:buttons(awful.util.table.join(
-		awful.button({}, 1, function () awful.layout.inc(layouts, 1) end),
-		awful.button({}, 3, function () awful.layout.inc(layouts, -1) end),
-		awful.button({}, 4, function () awful.layout.inc(layouts, 1) end),
-		awful.button({}, 5, function () awful.layout.inc(layouts, -1) end)
+		awful.button({}, 1, function () awful.layout.inc(outline.layouts, 1) end),
+		awful.button({}, 3, function () awful.layout.inc(outline.layouts, -1) end),
+		awful.button({}, 4, function () awful.layout.inc(outline.layouts, 1) end),
+		awful.button({}, 5, function () awful.layout.inc(outline.layouts, -1) end)
 	))
 	-- Taglist
 	taglist[s] = awful.widget.taglist(s, awful.widget.taglist.label.all, taglist.buttons)

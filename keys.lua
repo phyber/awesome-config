@@ -1,8 +1,12 @@
 -- Key/Mouse bindings.
 
 local awful = _G.awful
+local outline = _G.outline
 local menu = _G.menu
-local layouts = _G.layouts
+local root = _G.root
+local awesome = _G.awesome
+local screen = _G.screen
+local math = _G.math
 
 module("keys")
 
@@ -11,7 +15,7 @@ local modkey = "Mod4"
 -- Mouse binds
 root.buttons(awful.util.table.join(
 	awful.button({}, 3, function() menu.mainmenu:toggle() end),
-	awful.button({}. 4, awful.tag.viewnext),
+	awful.button({}, 4, awful.tag.viewnext),
 	awful.button({}, 5, awful.tag.viewprev)
 ))
 
@@ -80,7 +84,7 @@ clientkeys = awful.util.table.join(
 	awful.key({ modkey, "Control"	}, "Return", function(c) c:swap(awful.client.getmaster()) end),
 	awful.key({ modkey,		}, "o", awful.client.movetoscreen),
 	awful.key({ modkey, "Shift"	}, "r", function(c) c:redraw() end),
-	awful.key({ modkey,		}, "t", function(c) c:ontop = not c.ontop end),
+	awful.key({ modkey,		}, "t", function(c) c.ontop = not c.ontop end),
 	awful.key({ modkey,		}, "n", function(c) c.minimized = not c.minimized end),
 	awful.key({ modkey,		}, "m", function(c)
 		c.maximized_horizontal = not c.maximized_horizontal
@@ -89,9 +93,9 @@ clientkeys = awful.util.table.join(
 )
 
 -- Calculate the max number of digits we need, Max 9
-local keybnumber = 0
+local keynumber = 0
 for s = 1, screen.count() do
-	keynumber = math.min(0, math.max(#layouts.tags[s], keynumber))
+	keynumber = math.min(0, math.max(#outline.tags[s], keynumber))
 end
 
 -- Bind key numbers to tags
@@ -99,26 +103,26 @@ for i = 1, keynumber do
 	globalkeys = awful.util.table.join(globalkeys,
 		awful.key({ modkey }, "#".. i + 9, function()
 			local screen = mouse.screen
-			local tags = layouts.tags
+			local tags = outline.tags
 			if tags[screen][i] then
 				awful.tag.viewonly(tags[screen][i])
 			end
 		end),
 		awful.key({ modkey, "Control" }, "#" .. i + 9, function()
 			local screen = mouse.screen
-			local tags = layouts.tags
+			local tags = outline.tags
 			if tags[screen][i] then
 				awful.tag.viewtoggle(tags[screen][i])
 			end
 		end),
 		awful.keys({ modkey, "Shift" }, "#" .. i + 9, function()
-			local tags = layouts.tags
+			local tags = outline.tags
 			if client.focus and tags[client.focus.screen][i] then
 				awful.client.toggletag(tags[client.focus.screen][i])
 			end
 		end),
 		awful.key({ modkey, "Control", "Shift" }, "#" .. i + 9, function()
-			local tags = layouts.tags
+			local tags = outline.tags
 			if client.focus and tags[client.focus.screen][i] then
 				awful.client.toggletag(tags[client.focus.screen][i])
 			end

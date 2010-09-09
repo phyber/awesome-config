@@ -1,8 +1,8 @@
 -- Layouts
 local awful = _G.awful
+local screen = _G.screen
 
-module("layouts")
-
+module("outline")
 -- Available layouts
 layouts = {
 	awful.layout.suit.floating,
@@ -16,7 +16,7 @@ layouts = {
 	awful.layout.suit.spiral.dwindle,
 	awful.layout.suit.max,
 	awful.layout.suit.max.fullscreen,
-	awful.layout.suit.suit.magnifier,
+	awful.layout.suit.magnifier,
 }
 
 -- Screen layouts
