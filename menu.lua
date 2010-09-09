@@ -7,11 +7,12 @@ local string = string
 
 module("menu")
 
-local terminal = "uxterm"
-local browser = "google-chrome"
-local homedir = os.getenv("HOME")
-local editor = os.getenv("EDITOR") or "vim"
-local editor_cmd = string.format("%s -e %s", terminal, editor)
+-- XXX: These should probably be in a settings.lua
+terminal = "uxterm"
+browser = "google-chrome"
+homedir = os.getenv("HOME")
+editor = os.getenv("EDITOR") or "vim"
+editor_cmd = string.format("%s -e %s", terminal, editor)
 
 awesomemenu = {
 	{
