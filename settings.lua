@@ -5,8 +5,8 @@ module("settings")
 
 homedir = os.getenv("HOME")
 modkey = "Mod4"
-theme = "/usr/share/awesome/themes/default/theme.lua",
-wallpaper = homedir .. "/.wallpaper/battlecry-dual-1680x1050.jpg",
+theme = "/usr/share/awesome/themes/default/theme.lua"
+wallpaper = homedir .. "/.wallpaper/battlecry-dual-1680x1050.jpg"
 
 terminal = "uxterm",
 browser = "google-chrome",
