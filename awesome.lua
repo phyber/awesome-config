@@ -6,10 +6,15 @@ require "awful.autofocus"
 require "awful.rules"
 require "awful.util"
 
+-- Load settings
+require "settings"
+
 -- Theme library and initialisation
 require "beautiful"
-beautiful.init("/usr/share/awesome/themes/default/theme.lua")
-awful.util.spawn(string.format("awsetbg -f %s/.wallpaper/battlecry-dual-1680x1050.jpg", os.getenv("HOME")))
+beautiful.init(settings.theme or "/usr/share/awesome/themes/default/theme.lua")
+if settings.wallpaper then
+	awful.util.spawn(string.format("awsetbg -f %s", settings.wallpaper))
+end
 
 -- Notification library
 require "naughty"
