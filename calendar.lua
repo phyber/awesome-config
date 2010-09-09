@@ -24,19 +24,25 @@ local function show(new_offset)
 	local save_offset = offset
 	remove()
 	offset = save_offset + new_offset
+
 	local datespec = os.date("*t")
 	datespec = datespec.year * 12 + datespec.month - 1 + offset
 	datespec = (datespec % 12 + 1) .. " " .. math.floor(datespec / 12)
+
 	local fcal = io.popen("cal "..datespec)
 	local caltext = fcal:read("*a")
+	fcal:close()
+
+	-- If we're looking at the current month, 
+	-- find and bold/underline the current date.
 	if offset == 0 then
+		local day = os.date("%d")
 		caltext = string.gsub(
 			caltext,
-			string.format(" %2d ", os.date("%d")),
-			string.format(" <b><u>%2d</u></b> ", os.date("%d"))
+			string.format(" %2d ", day),
+			string.format(" <b><u>%2d</u></b> ", day)
 		)
 	end
-	fcal:close()
 
 	calobj = naughty.notify({
 		title = string.format(
