@@ -6,7 +6,7 @@ local client = _G.client
 module("signals")
 
 client.add_signal("manage", function(c, startup)
-	-- Enable sloppy ocus
+	-- Enable sloppy focus
 	c:add_signal("mouse::enter", function(c)
 		if awful.layout.get(c.screen) ~= awful.layout.suit.magnifier and awful.client.focus.filter(c) then
 			client.focus = c
