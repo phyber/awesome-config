@@ -4,7 +4,7 @@ require "awful"
 require "naughty"
 
 -- Function we can call from any module to help see what's broken
-function naughty_error(s)
+function perror(s)
 	naughty.notify({
 		text = s,
 		timeout = 0,
@@ -37,7 +37,7 @@ naughty.notify({
 	),
 	timeout = 0
 })]]
-naughty_error(string.format(
+perror(string.format(
 	"Awesome failed to start on %s.\nError: %s",
 	os.date("%d/%m/%Y %T"),
 	err

@@ -9,6 +9,8 @@ local image = _G.image
 local outline = _G.outline
 local menu = _G.menu
 
+local calendar = require "calendar"
+
 module("widgets")
 
 local modkey = "Mod4"
@@ -64,8 +66,16 @@ textclock = awful.widget.textclock(
 	"%a %b %d, %H:%M:%S ",
 	1
 )
-
--- CALENDAR HERE
+-- Shift clicking the clock will lock the screen
+textclock:buttons(awful.util.table.join(
+	awful.button({ "Shift" }, 1, function()
+		awful.util.spawn_with_shell("xscreensaver-command -lock &")
+	end)
+))
+-- Attach a calendar if module is loaded.
+if calendar then
+	calendar.add(textclock)
+end
 
 -- Systray
 systray = widget({ type = "systray" })
