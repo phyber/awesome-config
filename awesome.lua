@@ -16,7 +16,7 @@ require "naughty"
 -- Widget library
 require "vicious"
 
--- Custom modules
+-- Custom modules. Order is important
 require "layouts"
 require "menu"
 require "widgets"
