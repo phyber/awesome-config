@@ -1,6 +1,5 @@
 -- Build menus
 
-local os = os
 local awful = _G.awful
 local debian = {
 	menu = require "debian.menu"
