@@ -7,6 +7,8 @@ local root = _G.root
 local awesome = _G.awesome
 local screen = _G.screen
 local math = _G.math
+local mouse = _G.mouse
+local widgets = _G.widgets
 
 module("keys")
 
