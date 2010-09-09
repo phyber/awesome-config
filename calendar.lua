@@ -46,13 +46,11 @@ local function show(new_offset)
 
 	calobj = naughty.notify({
 		title = string.format(
-			'<span font_desc="%s"><b>%s</b></span>',
-			"monospace",
+			'<tt><b>%s</b></tt>',
 			os.date("%a, %d %B %Y")
 		),
 		text = string.format(
-			'<span font_desc="%s">%s</span>',
-			"monospace",
+			'<tt>%s</tt>',
 			caltext
 		),
 		timeout = 0,
