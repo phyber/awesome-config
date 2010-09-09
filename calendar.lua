@@ -25,17 +25,12 @@ local function show(new_offset)
 	remove()
 	offset = save_offset + new_offset
 	local datespec = os.date("*t")
-	datespec = datespec.year * 12 + datespec.month -1 + offset
+	datespec = datespec.year * 12 + datespec.month - 1 + offset
 	datespec = (datespec % 12 + 1) .. " " .. math.floor(datespec / 12)
 	local fcal = io.popen("cal "..datespec)
-	local caltext = ""
-	local day = string.format(" %2d ", os.date("%d"))
-	for line in fcal:lines() do
-		-- replace the current day with an underlined version
-		if offset == 0 then
-			line = string.gsub(line, day, string.format(" <b><u>%2d</u></b> ", os.date("%d")))
-		end
-		caltext = caltext .. "\n" .. line
+	local caltext = fcal:read("*a")
+	if offset == 0 then
+		caltext = string.gsub(caltext, string.format(" %2d ", os.date("%d")), string.format(" <b><u>%2d</u></b> ", os.date("%d")))
 	end
 	fcal:close()
 
@@ -64,9 +59,11 @@ function add(widget)
 	end)
 	widget:add_signal("mouse::leave", remove)
 	widget:buttons(awful.util.table.join(
+		-- Mouse wheel up
 		awful.button({}, 4, function()
 			show(-1)
 		end),
+		-- Mouse wheel down
 		awful.button({}, 5, function()
 			show(1)
 		end)
