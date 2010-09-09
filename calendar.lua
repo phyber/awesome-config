@@ -30,7 +30,11 @@ local function show(new_offset)
 	local fcal = io.popen("cal "..datespec)
 	local caltext = fcal:read("*a")
 	if offset == 0 then
-		caltext = string.gsub(caltext, string.format(" %2d ", os.date("%d")), string.format(" <b><u>%2d</u></b> ", os.date("%d")))
+		caltext = string.gsub(
+			caltext,
+			string.format(" %2d ", os.date("%d")),
+			string.format(" <b><u>%2d</u></b> ", os.date("%d"))
+		)
 	end
 	fcal:close()
 
