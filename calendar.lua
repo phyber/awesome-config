@@ -51,10 +51,7 @@ local function show(new_offset)
 	caltext = string.gsub(caltext, "\n+$", "")
 
 	calobj = naughty.notify({
-		title = string.format(
-			'<tt><b>%s</b></tt>',
-			os.date("%a, %d %b %Y")
-		),
+		title = os.date("<tt><b>%a, %d %b %Y</b></tt>"),
 		text = string.format(
 			'<tt>%s</tt>',
 			caltext
