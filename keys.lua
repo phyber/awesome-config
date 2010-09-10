@@ -98,34 +98,30 @@ clientkeys = awful.util.table.join(
 -- Calculate the max number of digits we need, Max 9
 local keynumber = 0
 for s = 1, screen.count() do
-	keynumber = math.min(0, math.max(#outline.tags[s], keynumber))
+	keynumber = math.min(9, math.max(#outline.tags[s], keynumber))
 end
 
 -- Bind key numbers to tags
 for i = 1, keynumber do
+	local screen = mouse.screen
+	local tags = outline.tags
 	globalkeys = awful.util.table.join(globalkeys,
 		awful.key({ modkey }, "#".. i + 9, function()
-			local screen = mouse.screen
-			local tags = outline.tags
 			if tags[screen][i] then
 				awful.tag.viewonly(tags[screen][i])
 			end
 		end),
 		awful.key({ modkey, "Control" }, "#" .. i + 9, function()
-			local screen = mouse.screen
-			local tags = outline.tags
 			if tags[screen][i] then
 				awful.tag.viewtoggle(tags[screen][i])
 			end
 		end),
-		awful.keys({ modkey, "Shift" }, "#" .. i + 9, function()
-			local tags = outline.tags
+		awful.key({ modkey, "Shift" }, "#" .. i + 9, function()
 			if client.focus and tags[client.focus.screen][i] then
 				awful.client.toggletag(tags[client.focus.screen][i])
 			end
 		end),
 		awful.key({ modkey, "Control", "Shift" }, "#" .. i + 9, function()
-			local tags = outline.tags
 			if client.focus and tags[client.focus.screen][i] then
 				awful.client.toggletag(tags[client.focus.screen][i])
 			end
