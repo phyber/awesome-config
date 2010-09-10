@@ -36,7 +36,7 @@ cpu = widget({ type = "textbox" })
 vicious.register(
 	cpu,
 	vicious.widgets.cpu,
-	' $1% ',
+	'$1%',
 	1
 )
 
@@ -45,7 +45,7 @@ volume = widget({ type = "textbox" })
 vicious.register(
 	volume,
 	vicious.widgets.volume,
-	' $2$1% ',
+	'$2$1%',
 	0.5,
 	'Master'
 )
@@ -64,7 +64,7 @@ volume:buttons(awful.util.table.join(
 -- Text clock
 textclock = awful.widget.textclock(
 	{ align = "right" },
-	"%a %b %d, %H:%M:%S ",
+	"%a %b %d, %H:%M:%S",
 	1
 )
 -- Shift clicking the clock will lock the screen
@@ -77,6 +77,12 @@ textclock:buttons(awful.util.table.join(
 if calendar then
 	calendar.add(textclock)
 end
+
+-- Spacer/Separator
+spacer = widget({ type = "textbox" })
+spacer.text = " "
+separator = widget({ type = "textbox" })
+separator.text = "<tt>|</tt>"
 
 -- Systray
 systray = widget({ type = "systray" })
@@ -157,11 +163,12 @@ for s = 1, screen.count() do
 			promptbox[s],
 			layout = awful.widget.layout.horizontal.leftright,
 		},
-		layoutbox[s],
-		textclock,
-		volume,
-		network,
-		cpu,
+		-- Spread these out a little bit.
+		layoutbox[s],	spacer,
+		textclock,	spacer, separator, spacer,
+		volume,		spacer, separator, spacer,
+		network,	spacer, separator, spacer,
+		cpu,		spacer, separator, spacer,
 		-- Systray only on first monitor
 		s == 1 and systray or nil,
 		tasklist[s],
