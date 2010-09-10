@@ -143,7 +143,7 @@ for s = 1, screen.count() do
 	-- Taglist
 	taglist[s] = awful.widget.taglist(s, awful.widget.taglist.label.all, taglist.buttons)
 	-- Tasklist
-	tasklist[s] = awful.widget.tasklist(function(s) return awful.widget.fasklist.label.currenttags(c, s) end, tasklist.buttons)
+	tasklist[s] = awful.widget.tasklist(function(c) return awful.widget.fasklist.label.currenttags(c, s) end, tasklist.buttons)
 	-- Wibox
 	wibox[s] = awful.wibox({
 		position = "top",
