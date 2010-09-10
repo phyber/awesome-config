@@ -44,10 +44,13 @@ local function show(new_offset)
 		)
 	end
 
+	-- Remove the extra new lines on the end of cal
+	caltext = string.gsub(caltext, "\n+$", "")
+
 	calobj = naughty.notify({
 		title = string.format(
 			'<tt><b>%s</b></tt>',
-			os.date("%a, %d %B %Y")
+			os.date("%a, %d %b %Y")
 		),
 		text = string.format(
 			'<tt>%s</tt>',
