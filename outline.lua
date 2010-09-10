@@ -1,8 +1,10 @@
 -- Layouts
-local awful = _G.awful
-local screen = _G.screen
+-- Awesome modules
+local awful	= _G.awful
+local screen	= _G.screen
 
 module("outline")
+
 -- Available layouts
 layouts = {
 	awful.layout.suit.floating,

@@ -1,13 +1,16 @@
 -- Build menus
-
-local awful = _G.awful
+-- Lua libraries
+local string	= _G.string
+-- Awesome modules
+local awful	= _G.awful
 local debian = {
-	menu = require "debian.menu"
+	menu	= require "debian.menu"
 }
-local string = string
-local awesome = _G.awesome
-local beautiful = _G.beautiful
-local settings = _G.settings
+local awesome	= _G.awesome
+local beautiful	= _G.beautiful
+
+-- Our modules
+local settings	= _G.settings
 
 module("menu")
 
@@ -24,9 +27,9 @@ awesomemenu = {
 
 mainmenu = awful.menu({
 	items = {
-		{ "awesome", awesomemenu, beautiful.awesome_icon },
-		{ "Debian", debian.menu.Debian_menu.Debian },
-		{ "terminal", settings.terminal },
-		{ "browser", settings.browser },
+		{ "awesome",	awesomemenu, beautiful.awesome_icon },
+		{ "Debian",	debian.menu.Debian_menu.Debian },
+		{ "terminal",	settings.terminal },
+		{ "browser",	settings.browser },
 	}
 })

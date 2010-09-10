@@ -1,4 +1,6 @@
 -- Settings used elsewhere in the config.
+-- TODO: Group the settings so this file makes more sense.
+-- Lua libraries.
 local os = _G.os
 
 module("settings")

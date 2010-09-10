@@ -1,16 +1,17 @@
 -- Widgets
+-- Awesome modules
+local awful	= _G.awful
+local beautiful	= _G.beautiful
+local screen	= _G.screen
+local vicious	= _G.vicious
+local widget	= _G.widget
+local image	= _G.image
 
-local awful = _G.awful
-local beautiful = _G.beautiful
-local screen = _G.screen
-local vicious = _G.vicious
-local widget = _G.widget
-local image = _G.image
-local outline = _G.outline
-local menu = _G.menu
-local settings = _G.settings
-
-local calendar = require "calendar"
+-- Our modules
+local menu	= _G.menu
+local outline	= _G.outline
+local settings	= _G.settings
+local calendar	= require "calendar"
 
 module("widgets")
 

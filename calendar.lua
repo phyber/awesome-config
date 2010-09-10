@@ -1,11 +1,14 @@
 -- Calendar to attach to a widget
-local awful = _G.awful
-local naughty = _G.naughty
-local mouse = _G.mouse
-local string = _G.string
-local math = _G.math
-local os = _G.os
-local io = _G.io
+-- Lua libraries
+local io	= _G.io
+local os	= _G.os
+local math	= _G.math
+local string	= _G.string
+
+-- Awesome modules
+local awful	= _G.awful
+local mouse	= _G.mouse
+local naughty	= _G.naughty
 
 module("calendar")
 

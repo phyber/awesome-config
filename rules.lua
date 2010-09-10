@@ -1,6 +1,9 @@
 -- Rules
-local awful = _G.awful
-local beautiful = _G.beautiful
+-- Awesome modules
+local awful	= _G.awful
+local beautiful	= _G.beautiful
+
+-- Our modules
 local keys = _G.keys
 
 module("rules")

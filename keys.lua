@@ -1,15 +1,19 @@
 -- Key/Mouse bindings.
+-- Lua libraries
+local math	= _G.math
 
-local awful = _G.awful
-local outline = _G.outline
-local menu = _G.menu
-local root = _G.root
-local awesome = _G.awesome
-local screen = _G.screen
-local math = _G.math
-local mouse = _G.mouse
-local widgets = _G.widgets
-local settings = _G.settings
+-- Awesome modules
+local awful	= _G.awful
+local awesome	= _G.awesome
+local root	= _G.root
+local mouse	= _G.mouse
+local screen	= _G.screen
+
+-- Our modules
+local menu	= _G.menu
+local outline	= _G.outline
+local widgets	= _G.widgets
+local settings	= _G.settings
 
 module("keys")
 

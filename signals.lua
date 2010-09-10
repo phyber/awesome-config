@@ -1,7 +1,8 @@
 -- Signals
-local awful = _G.awful
-local beautiful = _G.beautiful
-local client = _G.client
+-- Awesome modules
+local awful	= _G.awful
+local client	= _G.client
+local beautiful	= _G.beautiful
 
 module("signals")
 

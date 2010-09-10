@@ -28,15 +28,6 @@ for s = 1, screen.count() do
 	mypromptbox[s].text = awful.util.escape(err:match("[^\n]*"))
 end
 
---[[
-naughty.notify({
-	text = string.format(
-		"Awesome failed to start on %s. Error: %s\n",
-		os.date("%d/%m/%Y %T"),
-		err
-	),
-	timeout = 0
-})]]
 perror(string.format(
 	"Awesome failed to start on %s.\nError: %s",
 	os.date("%d/%m/%Y %T"),
