@@ -110,7 +110,7 @@ for i = 1, keynumber do
 	globalkeys = awful.util.table.join(globalkeys,
 		awful.key({ modkey }, "#".. i + 9, function()
 			local screen = mouse.screen
-			local tags - outline.tags
+			local tags = outline.tags
 			if tags[screen][i] then
 				awful.tag.viewonly(tags[screen][i])
 			end
