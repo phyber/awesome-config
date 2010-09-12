@@ -1,4 +1,6 @@
 -- Real config starts here.
+-- Lua libraries
+require "posix"
 
 -- Standard awesome libraries.
 require "awful"
@@ -12,7 +14,7 @@ require "settings"
 -- Theme library and initialisation
 require "beautiful"
 beautiful.init(settings.theme or "/usr/share/awesome/themes/default/theme.lua")
-if settings.wallpaper then
+if settings.wallpaper and posix.stat(settings.wallpaper) then
 	awful.util.spawn(string.format("awsetbg -f %s", settings.wallpaper))
 end
 
