@@ -28,7 +28,7 @@ network = widget({ type = "textbox" })
 vicious.register(
 	network,
 	vicious.widgets.net,
-	'<span color="#CC9393">${br0 down_kb}</span> <span color="#7F9F7F">${br0 up_kb}</span>',
+	('<span color="#CC9393">${%s down_kb}</span> <span color="#7F9F7F">${%s up_kb}</span>'):format(settings.netif, settings.netif),
 	1
 )
 

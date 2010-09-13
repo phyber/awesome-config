@@ -18,3 +18,5 @@ editor_cmd = terminal .. " -e " .. editor
 autostart = {
 	["XScreenSaver"] = "xscreensaver -no-splash &",
 }
+
+netif = "br0"
