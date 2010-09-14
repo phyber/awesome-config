@@ -21,3 +21,6 @@ autostart = {
 
 -- Network widget setting.
 netif = "br0"
+
+-- How shall we lock the screen when Shift-Clicking the clock?
+lockscreen = "xlock"
