@@ -14,7 +14,7 @@ require "settings"
 -- Theme library and initialisation
 require "beautiful"
 beautiful.init(settings.theme or "/usr/share/awesome/themes/default/theme.lua")
-if settings.wallpaper and posix.stat(settings.wallpaper) then
+if settings.wallpaper and posix.stat(settings.wallpaper).type == "regular" then
 	awful.util.spawn(string.format("awsetbg -f %s", settings.wallpaper))
 end
 

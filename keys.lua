@@ -21,6 +21,7 @@ local modkey = settings.modkey
 
 -- Mouse binds
 root.buttons(awful.util.table.join(
+	awful.button({}, 1, function() menu.mainmenu:hide() end),
 	awful.button({}, 3, function() menu.mainmenu:toggle() end),
 	awful.button({}, 4, awful.tag.viewnext),
 	awful.button({}, 5, awful.tag.viewprev)
@@ -62,7 +63,7 @@ globalkeys = awful.util.table.join(
 
 	-- Awesome
 	awful.key({ modkey,		}, "Return", function()
-		awful.util.spawn(menu.terminal)
+		awful.util.spawn(settings.terminal)
 	end),
 	awful.key({ modkey, "Control"	}, "r", awesome.restart),
 	--awful.key({ modkey, "Shift"	}, "q", awesome.quit),
