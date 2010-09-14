@@ -16,7 +16,8 @@ editor = os.getenv("EDITOR") or "vim"
 editor_cmd = terminal .. " -e " .. editor
 
 autostart = {
-	["XScreenSaver"] = "xscreensaver -no-splash &",
+	--["XScreenSaver"] = "xscreensaver -no-splash &",
 }
 
+-- Network widget setting.
 netif = "br0"
