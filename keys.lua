@@ -96,7 +96,7 @@ globalkeys = awful.util.table.join(
 	-- Change tag to next layout
 	awful.key({ modkey,		}, "space", function()
 		awful.layout.inc(outline.layouts, 1)
-	end,
+	end),
 	-- Change tag to previous layout
 	awful.key({ modkey, "Shift"	}, "space", function()
 		awful.layout.inc(outline.layouts, -1)
