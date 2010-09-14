@@ -71,7 +71,7 @@ textclock = awful.widget.textclock(
 -- Shift clicking the clock will lock the screen
 textclock:buttons(awful.util.table.join(
 	awful.button({ "Shift" }, 1, function()
-		awful.util.spawn_with_shell("xlock")
+		awful.util.spawn("xlock", false)
 	end)
 ))
 -- Attach a calendar if module is loaded.

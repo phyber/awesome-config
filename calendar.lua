@@ -69,7 +69,7 @@ function add(widget)
 		show(0)
 	end)
 	widget:add_signal("mouse::leave", remove)
-	widget:buttons(awful.util.table.join(
+	widget:buttons(awful.util.table.join(widget:buttons(),
 		-- Mouse wheel up
 		awful.button({}, 4, function()
 			show(-1)
