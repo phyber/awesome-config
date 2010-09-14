@@ -24,3 +24,13 @@ netif = "br0"
 
 -- How shall we lock the screen when Shift-Clicking the clock?
 lockscreen = "xlock"
+
+-- Media keys
+mediakeys = {
+	["XF86AudioPlay"]		= "mocp --toggle-pause",
+	["XF86AudioPrev"]		= "mocp --previous",
+	["XF86AudioNext"]		= "mocp --next",
+	["XF86AudioMute"]		= "amixer -q sset Master toggle",
+	["XF86AudioRaiseVolume"]	= "amixer -q sset Master 5%+",
+	["XF86AudioLowerVolume"]	= "amixer -q sset Master 5%-",
+}

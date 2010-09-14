@@ -32,3 +32,6 @@ require "widgets"
 require "keys"
 require "rules"
 require "signals"
+
+-- Order not so important here.
+require "mediakeys"
