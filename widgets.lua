@@ -6,6 +6,7 @@ local screen	= _G.screen
 local vicious	= _G.vicious
 local widget	= _G.widget
 local image	= _G.image
+local client	= _G.client
 
 -- Our modules
 local menu	= _G.menu

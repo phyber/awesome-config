@@ -8,6 +8,7 @@ local awesome	= _G.awesome
 local root	= _G.root
 local mouse	= _G.mouse
 local screen	= _G.screen
+local client	= _G.client
 
 -- Our modules
 local menu	= _G.menu
@@ -172,7 +173,7 @@ end
 
 clientbuttons = awful.util.table.join(
 	awful.button({}, 1, function(c)
-		c.focus = c
+		client.focus = c
 		c:raise()
 	end),
 	awful.button({ modkey }, 1, awful.mouse.client.move),
