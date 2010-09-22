@@ -9,6 +9,11 @@ local root	= _G.root
 local keys	= _G.keys
 local settings	= _G.settings
 
+-- Protect thyself
+if not settings.mediakeys or type(settings.mediakeys) ~= "table" then
+	return
+end
+
 -- Bind the media keys we set in the settings.
 local newkeys = {}
 for key, cmd in pairs(settings.mediakeys) do
