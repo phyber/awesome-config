@@ -1,5 +1,7 @@
 -- Bind keyboard media keys.
+-- Lua libraries.
 local pairs	= _G.pairs
+local type	= _G.type
 
 -- Awesome modules
 local awful	= _G.awful
