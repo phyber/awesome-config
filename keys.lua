@@ -119,6 +119,7 @@ globalkeys = awful.util.table.join(
 )
 
 clientkeys = awful.util.table.join(
+	-- TODO: Make toggling fullscreen remember the c.ontop state and restore it
 	awful.key({ modkey,		}, "f", function(c) c.fullscreen = not c.fullscreen end),
 	awful.key({ modkey, "Shift"	}, "c", function(c) c:kill() end),
 	awful.key({ modkey, "Control"	}, "space", awful.client.floating.toggle),
@@ -159,7 +160,7 @@ for i = 1, keynumber do
 		awful.key({ modkey, "Shift" }, "#" .. i + 9, function()
 			local tags = outline.tags
 			if client.focus and tags[client.focus.screen][i] then
-				awful.client.toggletag(tags[client.focus.screen][i])
+				awful.client.movetotag(tags[client.focus.screen][i])
 			end
 		end),
 		awful.key({ modkey, "Control", "Shift" }, "#" .. i + 9, function()
