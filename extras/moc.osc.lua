@@ -18,7 +18,7 @@ local ti = {
 local ac = io.popen("awesome-client", "w")
 if ac then
 	local notification = string.format(
-		'naughty.notify({title = "%s", text = "%s", timeout = 10, width = 200, screen = 1,})\n',
+		'naughty.notify({title = "%s", text = "%s", timeout = 10, screen = 1,})\n',
 		-- Artist: Album is the title of the notification
 		string.format('%s: %s', ti.artist, ti.album),
 		-- Track info for the rest of it.
