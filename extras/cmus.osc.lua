@@ -28,6 +28,10 @@ local function escape(s)
 	return s
 end
 
+local function duration(secs)
+	return string.format("%02d:%02d", secs / 60, secs % 60)
+end
+
 local ac = io.popen("awesome-client", "w")
 if ac then
 	local notification = string.format(
@@ -35,7 +39,7 @@ if ac then
 		-- 'Artist: Album' is the title of the notification
 		string.format('%s: %s', escape(ti.artist), escape(ti.album)),
 		-- Track info for the rest of it.
-		string.format('Track %02d: %s\\nDuration: %s', escape(ti.tracknumber), escape(ti.title), escape(ti.duration))
+		string.format('Track %02d: %s\\nDuration: %s', escape(ti.tracknumber), escape(ti.title), escape(duration(ti.duration)))
 	)
 	ac:write(notification)
 	ac:close()
