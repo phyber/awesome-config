@@ -26,7 +26,7 @@ debugfile("Loading awesome.lua")
 
 beautiful.init(settings.theme or "/usr/share/awesome/themes/default/theme.lua")
 if settings.wallpaper and posix.stat(settings.wallpaper).type == "regular" then
-	awful.util.spawn(string.format("awsetbg -f %s", settings.wallpaper))
+	awful.util.spawn(("awsetbg -f %s"):format(settings.wallpaper))
 end
 
 -- Custom modules. Order is important

@@ -1,6 +1,4 @@
 -- Build menus
--- Lua libraries
-local string	= _G.string
 -- Awesome modules
 local awful	= _G.awful
 --local debian = {
@@ -18,7 +16,7 @@ module("menu")
 awesomemenu = {
 	{
 		"edit config", 
-		string.format("%s %s/rc.lua", settings.editor_cmd, awful.util.getdir("config"))
+		("%s %s/rc.lua"):format(settings.editor_cmd, awful.util.getdir("config"))
 	},
 	{
 		"restart",

@@ -42,8 +42,7 @@ for s = 1, screen.count() do
 	mypromptbox[s].text = awful.util.escape(err:match("[^\n]*"))
 end
 
-perror(string.format(
-	"Awesome failed to start on %s.\nError: %s",
+perror(("Awesome failed to start on %s.\nError: %s"):format(
 	os.date("%d/%m/%Y %T"),
 	err
 ))

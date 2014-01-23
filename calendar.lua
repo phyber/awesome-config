@@ -3,7 +3,6 @@
 local io	= _G.io
 local os	= _G.os
 local math	= _G.math
-local string	= _G.string
 
 -- Awesome modules
 local awful	= _G.awful
