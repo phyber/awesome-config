@@ -11,6 +11,7 @@ local screen	= _G.screen
 local client	= _G.client
 
 -- Our modules
+local const	= _G.const
 local menu	= _G.menu
 local outline	= _G.outline
 local widgets	= _G.widgets
@@ -23,10 +24,10 @@ local modkey = settings.modkey
 
 -- Mouse binds
 root.buttons(awful.util.table.join(
-	awful.button({}, 1, function() menu.mainmenu:hide() end),
-	awful.button({}, 3, function() menu.mainmenu:toggle() end),
-	awful.button({}, 4, awful.tag.viewnext),
-	awful.button({}, 5, awful.tag.viewprev)
+	awful.button({}, const.MOUSE_LEFT_BTN, function() menu.mainmenu:hide() end),
+	awful.button({}, const.MOUSE_RIGHT_BTN, function() menu.mainmenu:toggle() end),
+	awful.button({}, const.MOUSE_WHEEL_UP, awful.tag.viewnext),
+	awful.button({}, const.MOUSE_WHEEL_DN, awful.tag.viewprev)
 ))
 
 -- Key binds
@@ -174,12 +175,12 @@ for i = 1, keynumber do
 end
 
 clientbuttons = awful.util.table.join(
-	awful.button({}, 1, function(c)
+	awful.button({}, const.MOUSE_LEFT_BTN, function(c)
 		client.focus = c
 		c:raise()
 	end),
-	awful.button({ modkey }, 1, awful.mouse.client.move),
-	awful.button({ modkey }, 3, awful.mouse.client.resize)
+	awful.button({ modkey }, const.MOUSE_LEFT_BTN, awful.mouse.client.move),
+	awful.button({ modkey }, const.MOUSE_RIGHT_BTN, awful.mouse.client.resize)
 )
 
 -- Set keys.
