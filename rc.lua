@@ -1,7 +1,9 @@
 -- Fail safe, taken from github.com/bioe007
 
-require "awful"
-require "naughty"
+awful = require "awful"
+naughty = require "naughty"
+io = require "io"
+os = require "os"
 
 -- Function we can call from any module to help see what's broken
 function perror(s)
@@ -11,6 +13,17 @@ function perror(s)
 	})
 end
 
+function debugfile(s)
+	local f = io.open(os.getenv("HOME").."/.awesome.debugfile","a+")
+	if f then
+		f:write(os.date()..": "..s.."\n")
+		f:close()
+	else
+		perror("Couldn't open debugfile")
+	end
+end
+
+debugfile("New awesome startup...")
 local confdir = awful.util.getdir("config")
 local rc, err = loadfile(confdir .. "/awesome.lua")
 if rc then
@@ -20,6 +33,7 @@ if rc then
 	end
 end
 
+debugfile("Config failed. Loading default.")
 -- Loading our config failed, load the default!
 dofile("/etc/xdg/awesome/rc.lua")
 

@@ -1,18 +1,21 @@
 -- Real config starts here.
 -- Lua libraries
-require "posix"
+posix = require "posix"
 
 -- Standard awesome libraries.
-require "awful"
-require "awful.autofocus"
-require "awful.rules"
-require "awful.util"
+awful = require "awful"
+awful.autofocus = require "awful.autofocus"
+awful.rules = require "awful.rules"
+awful.util = require "awful.util"
 
 -- Load settings
 require "settings"
 
 -- Theme library and initialisation
-require "beautiful"
+beautiful = require "beautiful"
+
+debugfile("Loading awesome.lua")
+
 beautiful.init(settings.theme or "/usr/share/awesome/themes/default/theme.lua")
 if settings.wallpaper and posix.stat(settings.wallpaper).type == "regular" then
 	awful.util.spawn(string.format("awsetbg -f %s", settings.wallpaper))
@@ -22,12 +25,13 @@ end
 require "naughty"
 
 -- Widget library
-require "vicious"
+vicious = require "vicious"
 
 -- Custom modules. Order is important
 require "autostart"
 require "outline"
 require "menu"
+wibox = require "wibox"
 require "widgets"
 require "keys"
 require "rules"

@@ -11,6 +11,7 @@ local root	= _G.root
 local keys	= _G.keys
 local settings	= _G.settings
 
+debugfile("Loading mediakeys.lua")
 -- Protect thyself
 if not settings.mediakeys or type(settings.mediakeys) ~= "table" then
 	return

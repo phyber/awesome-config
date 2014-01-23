@@ -8,6 +8,7 @@ local root = _G.root
 -- Scratch
 local scratch = require "scratch"
 
+debugfile("Loading dropdown.lua")
 -- Add the new keys to the list
 local modkey = _G.settings.modkey
 keys.globalkeys = awful.util.table.join(keys.globalkeys,

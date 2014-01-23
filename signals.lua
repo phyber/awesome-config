@@ -4,6 +4,7 @@ local awful	= _G.awful
 local client	= _G.client
 local beautiful	= _G.beautiful
 
+debugfile("Loading signals.lua")
 module("signals")
 
 client.add_signal("manage", function(c, startup)

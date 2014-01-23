@@ -10,7 +10,9 @@ local awful	= _G.awful
 local mouse	= _G.mouse
 local naughty	= _G.naughty
 
+debugfile("Loading calendar.lua")
 module("calendar")
+
 
 local calobj = nil
 local offset = 0
@@ -32,7 +34,7 @@ local function show(new_offset)
 	datespec = datespec.year * 12 + datespec.month - 1 + offset
 	datespec = (datespec % 12 + 1) .. " " .. math.floor(datespec / 12)
 
-	local fcal = io.popen("cal "..datespec)
+	local fcal = io.popen("cal -h "..datespec)
 	local caltext = fcal:read("*a")
 	fcal:close()
 
@@ -58,7 +60,7 @@ local function show(new_offset)
 		),
 		timeout = 0,
 		hover_timeout = 0.5,
-		width = 150,
+		width = 160,
 		screen = mouse.screen,
 	})
 end

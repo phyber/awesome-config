@@ -16,6 +16,7 @@ local outline	= _G.outline
 local widgets	= _G.widgets
 local settings	= _G.settings
 
+debugfile("Loading keys.lua")
 module("keys")
 
 local modkey = settings.modkey

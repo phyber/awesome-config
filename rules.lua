@@ -6,6 +6,7 @@ local beautiful	= _G.beautiful
 -- Our modules
 local keys = _G.keys
 
+debugfile("Loading rules.lua")
 module("rules")
 
 awful.rules.rules = {
@@ -32,6 +33,14 @@ awful.rules.rules = {
 	},
 	{
 		rule = {
+			class = "mplayer2"
+		},
+		properties = {
+			floating = true
+		},
+	},
+	{
+		rule = {
 			class = "pinentry"
 		},
 		properties = {
@@ -41,6 +50,14 @@ awful.rules.rules = {
 	{
 		rule = {
 			class = "gimp"
+		},
+		properties = {
+			floating = true
+		},
+	},
+	{
+		rule = {
+			class = "dzen2"
 		},
 		properties = {
 			floating = true

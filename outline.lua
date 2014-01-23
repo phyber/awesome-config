@@ -3,6 +3,7 @@
 local awful	= _G.awful
 local screen	= _G.screen
 
+debugfile("Loading outline.lua")
 module("outline")
 
 -- Available layouts
