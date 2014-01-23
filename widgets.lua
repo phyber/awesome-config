@@ -121,8 +121,12 @@ _taglist.buttons = awful.util.table.join(
 	awful.button({ modkey }, const.MOUSE_LEFT_BTN, awful.client.movetotag),
 	awful.button({}, const.MOUSE_RIGHT_BTN, awful.tag.viewtoggle),
 	awful.button({ modkey }, const.MOUSE_RIGHT_BTN, awful.client.toggletag),
-	awful.button({}, const.MOUSE_WHEEL_UP, awful.tag.viewnext),
-	awful.button({}, const.MOUSE_WHEEL_DN, awful.tag.viewprev)
+	awful.button({}, const.MOUSE_WHEEL_UP, function(t)
+		awful.tag.viewnext(awful.tag.getscreen(t))
+	end),
+	awful.button({}, const.MOUSE_WHEEL_DN, function(t)
+		awful.tag.viewprev(awful.tag.getscreen(t))
+	end)
 )
 
 debugfile("Tasklist...")
@@ -188,16 +192,16 @@ for s = 1, screen.count() do
 		screen = s
 	})
 
+	-- Layout
+	left_layout:add(launcher)
+	left_layout:add(_taglist[s])
+	left_layout:add(_promptbox[s])
+
 	-- Systray
 	right_layout:add(systray)
 	right_layout:add(spacer)
 	right_layout:add(separator)
 	right_layout:add(spacer)
-
-	-- Layout
-	left_layout:add(launcher)
-	left_layout:add(_taglist[s])
-	left_layout:add(_promptbox[s])
 
 	-- CPU
 	right_layout:add(cpu)
