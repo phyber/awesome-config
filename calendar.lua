@@ -10,9 +10,11 @@ local awful	= _G.awful
 local mouse	= _G.mouse
 local naughty	= _G.naughty
 
+-- Our modules
+local const	= _G.const
+
 debugfile("Loading calendar.lua")
 module("calendar")
-
 
 local calobj = nil
 local offset = 0
@@ -34,7 +36,7 @@ local function show(new_offset)
 	datespec = datespec.year * 12 + datespec.month - 1 + offset
 	datespec = (datespec % 12 + 1) .. " " .. math.floor(datespec / 12)
 
-	local fcal = io.popen("cal -h "..datespec)
+	local fcal = io.popen("cal "..datespec)
 	local caltext = fcal:read("*a")
 	fcal:close()
 
@@ -42,10 +44,9 @@ local function show(new_offset)
 	-- find and bold/underline the current date.
 	if offset == 0 then
 		local day = os.date("%d")
-		caltext = string.gsub(
-			caltext,
-			string.format(" %2d ", day),
-			string.format(" <b><u>%2d</u></b> ", day)
+		caltext:gsub(
+			(" %2d "):format(day),
+			(" <b><u>%2d</u></b> "):format(day)
 		)
 	end
 
@@ -53,11 +54,8 @@ local function show(new_offset)
 	caltext = caltext:gsub("\n+$", "")
 
 	calobj = naughty.notify({
-		title = os.date("<tt><b>%a, %d %b %Y</b></tt>"),
-		text = string.format(
-			'<tt>%s</tt>',
-			caltext
-		),
+		title = os.date("%a, %d %b %Y"),
+		text = ('<tt>%s</tt>'):format(caltext),
 		timeout = 0,
 		hover_timeout = 0.5,
 		width = 160,
@@ -67,17 +65,17 @@ end
 
 -- Public function to add the calendar to a given widget
 function add(widget)
-	widget:add_signal("mouse::enter", function()
+	widget:connect_signal("mouse::enter", function()
 		show(0)
 	end)
-	widget:add_signal("mouse::leave", remove)
+	widget:connect_signal("mouse::leave", remove)
 	widget:buttons(awful.util.table.join(widget:buttons(),
 		-- Mouse wheel up
-		awful.button({}, 4, function()
+		awful.button({}, const.MOUSE_WHEEL_UP, function()
 			show(-1)
 		end),
 		-- Mouse wheel down
-		awful.button({}, 5, function()
+		awful.button({}, const.MOUSE_WHEEL_DN, function()
 			show(1)
 		end)
 	))
