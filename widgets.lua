@@ -8,6 +8,7 @@ local wibox	= _G.wibox
 local client	= _G.client
 
 -- Our modules
+local const	= _G.const
 local menu	= _G.menu
 local outline	= _G.outline
 local settings	= _G.settings
@@ -66,10 +67,18 @@ if volume then
 	-- 5 = Mouse wheel down
 	debugfile("Volume buttons...")
 	volume:buttons(awful.util.table.join(
-		awful.button({}, 1, function() awful.util.spawn("amixer -q sset Master toggle", false) end),
-		awful.button({"Shift"}, 1, function() awful.util.spawn("xterm -e alsamixer", true) end),
-		awful.button({}, 4, function() awful.util.spawn("amixer -q sset Master 5%+", false) end),
-		awful.button({}, 5, function() awful.util.spawn("amixer -q sset Master 5%-", false) end)
+		awful.button({}, const.MOUSE_LEFT_BTN, function()
+			awful.util.spawn("amixer -q sset Master toggle", false)
+		end),
+		awful.button({"Shift"}, const.MOUSE_MIDDLE_BTN, function()
+			awful.util.spawn("urxvt -e alsamixer", true)
+		end),
+		awful.button({}, const.MOUSE_WHEEL_UP, function()
+			awful.util.spawn("amixer -q sset Master 1dB+", false)
+		end),
+		awful.button({}, const.MOUSE_WHEEL_DN, function()
+			awful.util.spawn("amixer -q sset Master 1dB-", false)
+		end)
 	))
 end
 
@@ -81,7 +90,7 @@ textclock = awful.widget.textclock(
 )
 -- Shift clicking the clock will lock the screen
 textclock:buttons(awful.util.table.join(
-	awful.button({ "Shift" }, 1, function()
+	awful.button({ "Shift" }, const.MOUSE_LEFT_BTN, function()
 		awful.util.spawn(settings.lockscreen, false)
 	end)
 ))
@@ -108,25 +117,25 @@ _promptbox = {}
 _layoutbox = {}
 _taglist = {}
 _taglist.buttons = awful.util.table.join(
-	awful.button({}, 1, awful.tag.viewonly),
-	awful.button({ modkey }, 1, awful.client.movetotag),
-	awful.button({}, 3, awful.tag.viewtoggle),
-	awful.button({ modkey }, 3, awful.client.toggletag),
-	awful.button({}, 4, awful.tag.viewnext),
-	awful.button({}, 5, awful.tag.viewprev)
+	awful.button({}, const.MOUSE_LEFT_BTN, awful.tag.viewonly),
+	awful.button({ modkey }, const.MOUSE_LEFT_BTN, awful.client.movetotag),
+	awful.button({}, const.MOUSE_RIGHT_BTN, awful.tag.viewtoggle),
+	awful.button({ modkey }, const.MOUSE_RIGHT_BTN, awful.client.toggletag),
+	awful.button({}, const.MOUSE_WHEEL_UP, awful.tag.viewnext),
+	awful.button({}, const.MOUSE_WHEEL_DN, awful.tag.viewprev)
 )
 
 debugfile("Tasklist...")
 _tasklist = {}
 _tasklist.buttons = awful.util.table.join(
-	awful.button({}, 1, function(c)
+	awful.button({}, const.MOUSE_LEFT_BTN, function(c)
 		if not c:isvisible() then
 			awful.tag.viewonly(c:tags()[1])
 		end
 		client.focus = c
 		c:raise()
 	end),
-	awful.button({}, 3, function()
+	awful.button({}, const.MOUSE_RIGHT_BTN, function()
 		if instance then
 			instance:hide()
 			instance = nil
@@ -134,13 +143,13 @@ _tasklist.buttons = awful.util.table.join(
 			instance = awful.menu.clients({ width = 250 })
 		end
 	end),
-	awful.button({}, 4, function()
+	awful.button({}, const.MOUSE_WHEEL_UP, function()
 		awful.client.focus.byidx(1)
 		if client.focus then
 			client.focus:raise()
 		end
 	end),
-	awful.button({}, 5, function()
+	awful.button({}, const.MOUSE_WHEEL_DN, function()
 		awful.client.focus.byidx(-1)
 		if client.focus then
 			client.focus:raise()
@@ -161,10 +170,10 @@ for s = 1, screen.count() do
 	-- Layout box
 	_layoutbox[s] = awful.widget.layoutbox(s)
 	_layoutbox[s]:buttons(awful.util.table.join(
-		awful.button({}, 1, function() awful.layout.inc(outline.layouts, 1) end),
-		awful.button({}, 3, function() awful.layout.inc(outline.layouts, -1) end),
-		awful.button({}, 4, function() awful.layout.inc(outline.layouts, 1) end),
-		awful.button({}, 5, function() awful.layout.inc(outline.layouts, -1) end)
+		awful.button({}, const.MOUSE_LEFT_BTN, function() awful.layout.inc(outline.layouts, 1) end),
+		awful.button({}, const.MOUSE_RIGHT_BTN, function() awful.layout.inc(outline.layouts, -1) end),
+		awful.button({}, const.MOUSE_WHEEL_UP, function() awful.layout.inc(outline.layouts, 1) end),
+		awful.button({}, const.MOUSE_WHEEL_DN, function() awful.layout.inc(outline.layouts, -1) end)
 	))
 
 	-- Taglist

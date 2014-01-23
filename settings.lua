@@ -40,6 +40,6 @@ mediakeys = {
 	["XF86AudioPrev"]		= "mocp --previous",
 	["XF86AudioNext"]		= "mocp --next",
 	["XF86AudioMute"]		= "amixer -q sset Master toggle",
-	["XF86AudioRaiseVolume"]	= "amixer -q sset Master 5%+",
-	["XF86AudioLowerVolume"]	= "amixer -q sset Master 5%-",
+	["XF86AudioRaiseVolume"]	= "amixer -q sset Master 1dB+",
+	["XF86AudioLowerVolume"]	= "amixer -q sset Master 1dB-",
 }

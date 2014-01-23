@@ -7,12 +7,20 @@ awful = require "awful"
 awful.autofocus = require "awful.autofocus"
 awful.rules = require "awful.rules"
 awful.util = require "awful.util"
+--client = require "client"
+wibox = require "wibox"
 
--- Load settings
-require "settings"
+-- Notification library
+naughty = require "naughty"
+
+-- Widget library
+vicious = require "vicious"
 
 -- Theme library and initialisation
 beautiful = require "beautiful"
+
+-- Load settings
+require "settings"
 
 debugfile("Loading awesome.lua")
 
@@ -21,17 +29,11 @@ if settings.wallpaper and posix.stat(settings.wallpaper).type == "regular" then
 	awful.util.spawn(string.format("awsetbg -f %s", settings.wallpaper))
 end
 
--- Notification library
-require "naughty"
-
--- Widget library
-vicious = require "vicious"
-
 -- Custom modules. Order is important
+require "const"
 require "autostart"
 require "outline"
 require "menu"
-wibox = require "wibox"
 require "widgets"
 require "keys"
 require "rules"
