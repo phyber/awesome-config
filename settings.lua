@@ -28,7 +28,7 @@ autostart = {
 }
 
 -- Network widget setting.
-netif = "eth0"
+netif = "br0"
 
 -- How shall we lock the screen when Shift-Clicking the clock?
 lockscreen = "slock"
