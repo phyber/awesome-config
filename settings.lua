@@ -15,7 +15,7 @@ wallpaper = homedir .. "/.wallpaper/hudf.jpg"
 -- No support for large trees of stuff yet.
 menuitems = {
 	terminal	= "uxterm",
-	browser		= "firefox",
+	browser		= "/usr/bin/firefox",
 }
 
 -- Old entries.
