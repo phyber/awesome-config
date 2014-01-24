@@ -8,19 +8,18 @@ module("settings")
 homedir = os.getenv("HOME")
 modkey = "Mod4"
 theme = homedir .. "/.config/awesome/current_theme.lua"
---wallpaper = homedir .. "/.wallpaper/battlecry-dual-1680x1050.jpg"
 wallpaper = homedir .. "/.wallpaper/hudf.jpg"
 --wallpaper = {}
 -- These appear on the top level of the right-click menu.
 -- No support for large trees of stuff yet.
 menuitems = {
-	terminal	= "uxterm",
+	terminal	= "urxvt",
 	browser		= "/usr/bin/firefox",
 }
 
 -- Old entries.
-terminal = "urxvt"
-browser = "chromium"
+terminal = menuutems.terminal
+browser = menuitems.browser
 editor = os.getenv("EDITOR") or "vim"
 editor_cmd = terminal .. " -e " .. editor
 
@@ -32,7 +31,7 @@ autostart = {
 netif = "eth0"
 
 -- How shall we lock the screen when Shift-Clicking the clock?
-lockscreen = "xscreensaver-command -lock"
+lockscreen = "slock"
 
 -- Media keys
 mediakeys = {
