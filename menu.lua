@@ -1,9 +1,6 @@
 -- Build menus
 -- Awesome modules
 local awful	= _G.awful
---local debian = {
---	menu	= require "debian.menu"
---}
 local awesome	= _G.awesome
 local beautiful	= _G.beautiful
 
@@ -27,15 +24,7 @@ awesomemenu = {
 mainmenu = awful.menu({
 	items = {
 		{ "awesome",	awesomemenu, beautiful.awesome_icon },
-		--{ "Debian",	debian.menu.Debian_menu.Debian },
 		{ "terminal",	settings.terminal },
 		{ "browser",	settings.browser },
 	}
 })
-
---[[
-if type(settings.menuitems) == "table" and #settings.menuitems > 0 then
-	for name, cmd in pairs(settings.menuitems) do 
-		mainmenu = awful.util.table.join(mainmenu, 
-end
---]]

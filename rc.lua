@@ -1,4 +1,4 @@
--- Fail safe, taken from github.com/bioe007
+-- Failsafe, taken from github.com/bioe007
 
 awful = require "awful"
 naughty = require "naughty"
@@ -19,7 +19,7 @@ function debugfile(s)
 		f:write(os.date()..": "..s.."\n")
 		f:close()
 	else
-		perror("Couldn't open debugfile")
+		perror("Couldn't open debugfile for writing")
 	end
 end
 

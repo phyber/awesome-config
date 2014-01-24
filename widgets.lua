@@ -21,14 +21,14 @@ module("widgets")
 local modkey = settings.modkey
 
 -- Launcher
-debugfile("Launcher...")
+debugfile(" ... launcher.")
 launcher = awful.widget.launcher({
 	image = beautiful.awesome_icon,
 	menu = menu.mainmenu
 })
 
 -- Network Usage
-debugfile("Network...")
+debugfile(" ... network.")
 network = wibox.widget.textbox()
 vicious.register(
 	network,
@@ -38,7 +38,7 @@ vicious.register(
 )
 
 -- CPU Usage
-debugfile("CPU...")
+debugfile(" ... CPU.")
 cpu = wibox.widget.textbox()
 vicious.register(
 	cpu,
@@ -50,9 +50,8 @@ vicious.register(
 -- ALSA Volume Widget
 local volume = true
 if volume then
-	debugfile("Volume...")
+	debugfile(" ... volume.")
 	volume = wibox.widget.textbox()
-	debugfile("Volume register...")
 	vicious.register(
 		volume,
 		vicious.widgets.volume,
@@ -65,7 +64,7 @@ if volume then
 	-- 2 = Right click
 	-- 4 = Mouse wheel up
 	-- 5 = Mouse wheel down
-	debugfile("Volume buttons...")
+	debugfile(" ... volume buttons.")
 	volume:buttons(awful.util.table.join(
 		awful.button({}, const.MOUSE_LEFT_BTN, function()
 			awful.util.spawn("amixer -q sset Master toggle", false)
@@ -83,7 +82,7 @@ if volume then
 end
 
 -- Text clock
-debugfile("Clock...")
+debugfile(" ... textclock.")
 textclock = awful.widget.textclock(
 	"%a %b %d, %H:%M:%S",
 	1
@@ -99,7 +98,7 @@ end
 
 -- Attach a calendar if module is loaded.
 if calendar then
-	debugfile("Attaching calendar to clock...")
+	debugfile(" ... attaching calendar to textclock.")
 	calendar.add(textclock)
 end
 
@@ -110,11 +109,11 @@ separator = wibox.widget.textbox()
 separator:set_markup("<tt>|</tt>")
 
 -- Systray
-debugfile("Systray...")
+debugfile(" ... systray.")
 systray = wibox.widget.systray()
 
 -- Create and fill the wibox
-debugfile("Wibox...")
+debugfile(" ... wibox.")
 _wibox = {}
 _promptbox = {}
 _layoutbox = {}
@@ -132,7 +131,7 @@ _taglist.buttons = awful.util.table.join(
 	end)
 )
 
-debugfile("Tasklist...")
+debugfile(" ... tasklist.")
 _tasklist = {}
 _tasklist.buttons = awful.util.table.join(
 	awful.button({}, const.MOUSE_LEFT_BTN, function(c)
@@ -164,7 +163,7 @@ _tasklist.buttons = awful.util.table.join(
 	end)
 )
 
-debugfile("Screenloop...")
+debugfile(" ... screenloop.")
 -- Add these things to each screen.
 for s = 1, screen.count() do
 	local left_layout = wibox.layout.fixed.horizontal()

@@ -9,7 +9,7 @@ homedir = os.getenv("HOME")
 modkey = "Mod4"
 theme = homedir .. "/.config/awesome/current_theme.lua"
 wallpaper = homedir .. "/.wallpaper/hudf.jpg"
---wallpaper = {}
+
 -- These appear on the top level of the right-click menu.
 -- No support for large trees of stuff yet.
 menuitems = {

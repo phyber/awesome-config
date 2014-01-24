@@ -7,7 +7,6 @@ awful = require "awful"
 awful.autofocus = require "awful.autofocus"
 awful.rules = require "awful.rules"
 awful.util = require "awful.util"
---client = require "client"
 wibox = require "wibox"
 
 -- Notification library
