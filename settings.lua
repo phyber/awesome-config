@@ -18,7 +18,7 @@ menuitems = {
 }
 
 -- Old entries.
-terminal = menuutems.terminal
+terminal = menuitems.terminal
 browser = menuitems.browser
 editor = os.getenv("EDITOR") or "vim"
 editor_cmd = terminal .. " -e " .. editor
