@@ -199,11 +199,13 @@ for s = 1, screen.count() do
 	left_layout:add(_taglist[s])
 	left_layout:add(_promptbox[s])
 
-	-- Systray
-	right_layout:add(systray)
-	right_layout:add(spacer)
-	right_layout:add(separator)
-	right_layout:add(spacer)
+	-- Systray, only on screen 1.
+	if s == 1 then
+		right_layout:add(systray)
+		right_layout:add(spacer)
+		right_layout:add(separator)
+		right_layout:add(spacer)
+	end
 
 	-- CPU
 	right_layout:add(cpu)
