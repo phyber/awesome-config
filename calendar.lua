@@ -43,9 +43,9 @@ local function show(new_offset)
 	-- find and bold/underline the current date.
 	if offset == 0 then
 		local day = os.date("%d")
-		caltext:gsub(
-			(" %2d "):format(day),
-			(" <b><u>%2d</u></b> "):format(day)
+		caltext = caltext:gsub(
+			("([^%%s]?)%2d "):format(day),
+			("%%1<b><u>%2d</u></b> "):format(day)
 		)
 	end
 
